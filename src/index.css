@@ -2,41 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Calm, sophisticated design system inspired by Alto's Odyssey
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Soft, warm base palette */
+    --background: 28 15% 97%;
+    --foreground: 28 8% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Elevated surfaces */
+    --card: 28 20% 99%;
+    --card-foreground: 28 8% 20%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 28 25% 98%;
+    --popover-foreground: 28 8% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Soft sage green */
+    --primary: 140 25% 45%;
+    --primary-foreground: 28 20% 99%;
+    
+    /* Secondary - Warm stone */
+    --secondary: 28 12% 90%;
+    --secondary-foreground: 28 8% 25%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Muted tones */
+    --muted: 28 15% 92%;
+    --muted-foreground: 28 8% 55%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Accent - Soft terracotta */
+    --accent: 20 35% 70%;
+    --accent-foreground: 28 20% 99%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 65% 65%;
+    --destructive-foreground: 28 20% 99%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Soft borders */
+    --border: 28 15% 88%;
+    --input: 28 15% 90%;
+    --ring: 140 25% 45%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    /* Soft radius for calm feel */
+    --radius: 0.75rem;
+    
+    /* Custom design tokens */
+    --grain-opacity: 0.03;
+    --soft-shadow: 0 4px 20px -4px hsl(28 8% 15% / 0.08);
+    --soft-shadow-lg: 0 8px 40px -8px hsl(28 8% 15% / 0.12);
+    --transition-smooth: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    --transition-bouncy: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Gradient overlays */
+    --gradient-soft: linear-gradient(135deg, hsl(28 20% 99%) 0%, hsl(28 15% 96%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(28 25% 99%) 0%, hsl(28 20% 97%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(140 25% 45%) 0%, hsl(160 30% 50%) 100%);
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +121,132 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* Soft grain texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0);
+    background-size: 20px 20px;
+    opacity: var(--grain-opacity);
+    pointer-events: none;
+    z-index: 1000;
+  }
+}
+
+@layer components {
+  /* Ink-style link underlines */
+  .ink-link {
+    @apply relative inline-block;
+    transition: var(--transition-smooth);
+  }
+  
+  .ink-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, 
+      hsl(var(--primary)) 0%, 
+      hsl(var(--accent)) 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    border-radius: 1px;
+  }
+  
+  .ink-link:hover::after {
+    transform: scaleX(1);
+  }
+  
+  /* Floating card effect */
+  .floating-card {
+    background: var(--gradient-card);
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--soft-shadow);
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .floating-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+      transparent, 
+      hsl(var(--primary) / 0.05), 
+      transparent);
+    transition: left 0.6s ease;
+  }
+  
+  .floating-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--soft-shadow-lg);
+  }
+  
+  .floating-card:hover::before {
+    left: 100%;
+  }
+  
+  /* Soft button styles */
+  .btn-soft {
+    background: var(--gradient-soft);
+    border: 1px solid hsl(var(--border));
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .btn-soft:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--soft-shadow);
+  }
+  
+  /* Scroll reveal animation */
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Breathing animation for subtle elements */
+  .breathe {
+    animation: breathe 4s ease-in-out infinite;
+  }
+  
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.02); opacity: 1; }
+  }
+  
+  /* Custom cursor trail */
+  .cursor-trail {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: hsl(var(--primary) / 0.1);
+    pointer-events: none;
+    z-index: 9999;
+    transition: all 0.15s ease;
+    transform: translate(-50%, -50%);
   }
 }
