@@ -48,11 +48,11 @@ const Contact = () => {
         <div className={`text-center mb-16 transition-all duration-800 ease-smooth ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <h2 className="text-4xl md:text-5xl font-light text-foreground mb-4">
-            Let's Work Together
+          <h2 className="font-serif text-4xl md:text-5xl font-semibold text-foreground mb-4">
+            Let's build something intelligent together
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Have a project in mind? I'd love to hear about it. Let's create something amazing together.
+            Ready to automate your business processes? Let's discuss how AI can save you time.
           </p>
         </div>
         
@@ -82,13 +82,13 @@ const Contact = () => {
                   <MessageCircle className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-foreground">Response Time</h3>
-                  <p className="text-muted-foreground">Within 24 hours</p>
+                  <h3 className="text-xl font-semibold text-foreground">WhatsApp</h3>
+                  <p className="text-muted-foreground">Chat directly</p>
                 </div>
               </div>
-              <p className="text-muted-foreground">
-                I typically respond to all inquiries within one business day.
-              </p>
+              <a href="#" className="text-muted-foreground hover:text-primary ink-link">
+                Chat on WhatsApp
+              </a>
             </div>
           </div>
           

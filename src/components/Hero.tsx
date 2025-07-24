@@ -11,45 +11,49 @@ const Hero = () => {
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Subtle background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/20" />
+      {/* Soft background with paper texture */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/30" />
       
-      <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
+      <div className="relative z-10 text-center max-w-5xl mx-auto px-6">
         <div className={`transition-all duration-1000 ease-smooth ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-light text-foreground mb-6 tracking-tight">
-            Saad
-            <span className="block text-3xl md:text-4xl lg:text-5xl text-muted-foreground mt-2 font-normal">
-              Creative Developer
+          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight mb-8 text-foreground">
+            Building automation that{' '}
+            <span className="relative inline-block">
+              actually saves you time
+              <div className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-accent transform origin-left transition-transform duration-1000 delay-1000 ${
+                isVisible ? 'scale-x-100' : 'scale-x-0'
+              }`}></div>
             </span>
+            .
           </h1>
         </div>
         
         <div className={`transition-all duration-1000 delay-300 ease-smooth ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-12">
-            Crafting digital experiences with clean code and thoughtful design.
-            Building bridges between imagination and reality.
+          <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed font-light">
+            I'm <span className="text-foreground font-medium">Saad</span> — former project manager at the London Stock Exchange, 
+            now building AI and automation workflows for real estate and SMBs in Dubai using tools like n8n and OpenAI.
           </p>
         </div>
         
         <div className={`transition-all duration-1000 delay-500 ease-smooth ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <a 
               href="#projects" 
-              className="ink-link text-lg font-medium text-foreground hover:text-primary px-6 py-3"
+              className="floating-card px-8 py-4 rounded-full text-lg font-medium bg-gradient-to-r from-primary to-accent text-primary-foreground transition-all hover:shadow-lg"
             >
-              View My Work
+              Explore Projects
             </a>
             <a 
               href="#contact" 
-              className="btn-soft px-8 py-3 rounded-full text-foreground hover:text-primary font-medium"
+              className="px-8 py-4 rounded-full text-lg font-medium border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all"
             >
-              Get In Touch
+              Work With Me
             </a>
           </div>
         </div>

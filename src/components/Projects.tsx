@@ -31,28 +31,28 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "A modern, responsive e-commerce solution built with Next.js and Stripe integration. Features include real-time inventory, advanced filtering, and seamless checkout experience.",
-      tech: ["Next.js", "TypeScript", "Stripe", "Tailwind CSS"],
-      image: "/api/placeholder/600/400",
-      github: "https://github.com",
-      live: "https://example.com"
+      title: "WhatsApp Real Estate CRM",
+      description: "Built an n8n workflow that receives WhatsApp messages, classifies intent with GPT-4, extracts budget/location/timeline, and updates Airtable. Replies to customers using OpenAI-generated natural language.",
+      tech: ["n8n", "OpenAI", "Twilio", "Airtable"],
+      image: "🏡",
+      github: "#",
+      live: "#"
     },
     {
-      title: "Design System",
-      description: "Comprehensive design system and component library for consistent user experiences across multiple products. Includes documentation, accessibility guidelines, and automated testing.",
-      tech: ["React", "Storybook", "Figma", "CSS-in-JS"],
-      image: "/api/placeholder/600/400",
-      github: "https://github.com",
-      live: "https://example.com"
+      title: "Self-Hosted Portfolio on VPS",
+      description: "Deployed this portfolio using Docker + Caddy on a VPS with Tailscale for remote access and SSL via Caddy reverse proxy.",
+      tech: ["Docker", "Caddy", "Tailscale", "DevOps"],
+      image: "🚀",
+      github: "#",
+      live: "https://thesaad.dev"
     },
     {
-      title: "Analytics Dashboard",
-      description: "Real-time analytics dashboard with interactive charts and customizable widgets. Built for scalability with efficient data visualization and export capabilities.",
-      tech: ["React", "D3.js", "Node.js", "MongoDB"],
-      image: "/api/placeholder/600/400",
-      github: "https://github.com",
-      live: "https://example.com"
+      title: "Automation Onboarding Toolkit",
+      description: "Created a modular onboarding system for new automation clients that collects business info via WhatsApp, structures it in Airtable, and prompts manual review for final config.",
+      tech: ["Client Intake", "n8n", "OpenAI", "WhatsApp"],
+      image: "⚡",
+      github: "#",
+      live: "#"
     }
   ];
 
@@ -60,11 +60,11 @@ const Projects = () => {
     <section id="projects" ref={sectionRef} className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16 scroll-reveal">
-          <h2 className="text-4xl md:text-5xl font-light text-foreground mb-4">
+          <h2 className="font-serif text-4xl md:text-5xl font-semibold text-foreground mb-4">
             Selected Work
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A collection of projects that showcase my passion for clean code and thoughtful design.
+            Real automation projects that save time and streamline workflows for businesses.
           </p>
         </div>
         
@@ -78,10 +78,8 @@ const Projects = () => {
                   : 'opacity-0 translate-y-8'
               }`}
             >
-              <div className="aspect-video bg-muted rounded-xl mb-6 overflow-hidden">
-                <div className="w-full h-full bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
-                  <div className="text-6xl opacity-20">🎨</div>
-                </div>
+              <div className="aspect-video bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl mb-6 overflow-hidden flex items-center justify-center border border-border/20">
+                <div className="text-8xl opacity-40">{project.image}</div>
               </div>
               
               <div className="space-y-4">
@@ -110,14 +108,14 @@ const Projects = () => {
                     className="flex items-center gap-2 ink-link text-muted-foreground hover:text-primary"
                   >
                     <Github size={18} />
-                    Code
+                    View Flow
                   </a>
                   <a
                     href={project.live}
                     className="flex items-center gap-2 ink-link text-muted-foreground hover:text-primary"
                   >
                     <ExternalLink size={18} />
-                    Live Demo
+                    See Details
                   </a>
                 </div>
               </div>
